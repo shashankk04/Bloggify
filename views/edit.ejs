@@ -1,0 +1,13 @@
+<%- include("./partials/header") %>
+<%- include("./partials/navbar") %>
+
+<div class="container mt-5">
+    <h3 class="my-3">Edit Your Blog Here</h3>
+    <form action="/edit/<%= blogId %>" method="POST"> <!-- Ensure correct action URL -->
+         <input type="text" name="newTitle" placeholder="Enter Title" class="form-control" value="<%= blog.title %>" required>
+         <textarea name="newContent" placeholder="Enter Content Here" cols="30" rows="10" class="form-control mt-3" required><%= blog.content %></textarea>
+         <input type="submit" value="Update" class="btn btn-md btn-danger mt-4">
+    </form>
+</div>
+
+<%- include("./partials/footer") %>
