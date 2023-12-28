@@ -1,0 +1,19 @@
+<%- include("./partials/header") %>
+<%- include("./partials/navbar") %>
+
+<div class="container mt-5">
+    <h2>All Blogs</h2>
+
+    <% blogs.forEach(blog => { %>
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title"><%= blog.title %></h5>
+                <p class="card-text"><%= blog.content %></p>
+                <!-- You can add a "Read More" link here if needed -->
+            </div>
+        </div>
+    <% }) %>
+
+</div>
+
+<%- include("./partials/footer") %>
