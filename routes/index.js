@@ -3,9 +3,11 @@ const router = express.Router();
 const blogData = require("./blogData"); // Assuming blogData module is in the same directory
 
 router.get('/', (req, res) => {
-    const blogs = blogData.getAllBlogs();
-    res.render('index', { blogs, index: blogs.map((_, index) => index) });
+    const blogs = blogData.getAllBlogs().map((blog, index) => ({ ...blog, blogId: index }));
+    res.render('index', { blogs });
 });
+
+
 
 router.get('/blog/:id', (req, res) => {
     const blogId = req.params.id;
@@ -35,6 +37,8 @@ router.get("/edit/:id", (req, res) => {
         res.status(404).send('Blog not found');
     }
 });
+
+
 router.post("/edit/:id", (req, res) => {
     const blogId = req.params.id;
     const newTitle = req.body.newTitle;

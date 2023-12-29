@@ -9,11 +9,14 @@
             <div class="card-body">
                 
                 <h5 class="card-title"><%= blog.title %></h5>
-                <p class="card-text"><%= blog.content.slice(0,99) %>...</p>
+                <p class="card-text">
+                    <%= blog.content.length > 99 ? blog.content.slice(0, 99) + '...' : blog.content %>
+                </p>
                 
-                <a href="/blog/<%= index %>" class="btn btn-primary">Read More</a>
-                <a href="/delete/<%= index %>" class="btn btn-dark">Delete</a>
-                <a href="/edit/<%= index %>" class="btn btn-dark">Edit</a>
+                <a href="/blog/<%= blog.blogId %>" class="btn btn-primary">Read More</a>
+                <a href="/delete/<%= blog.blogId %>" class="btn btn-dark">Delete</a>
+                <a href="/edit/<%= blog.blogId %>" class="btn btn-dark">Edit</a>
+
             </div>
         </div>
     <% }) %>
