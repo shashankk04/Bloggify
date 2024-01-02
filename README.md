@@ -1,4 +1,4 @@
 # Bloggify
-This is a simple blogging web application created using express js and node js.
+This is a simple blogging web application created using express js, node js and mongoDB.
 
-Note that the blogs wont be synced between different sessions due to the absence of an active database. However, I plan to add that functionality soon.
+To run this locally first run the `npm i` command and then use nodemon to start app.js.
