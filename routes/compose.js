@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const blogData = require("./blogData"); // Import the blog data module
+const Blog = require("../models/Blog"); // Import the blog data module
 
-router.get("/compose",(req,res)=>{
+router.get("/compose",async(req,res)=>{
+    
     res.render("composeBlog");
 });
 
@@ -11,13 +12,10 @@ router.post("/compose",(req,res)=>{
         return res.send("Please enter required credentials.");
     }
 
-    const newBlog = {
-        title,
-        content
-    };
+    const newBlog = new Blog({title,content});
 
-    // Use the function from blogData.js to add the blog
-    blogData.addBlog(newBlog);
+    
+    newBlog.save();
 
     res.redirect("/"); // Redirect to the home page after submitting the blog
 });

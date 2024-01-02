@@ -7,15 +7,15 @@
     <% blogs.forEach(blog => { %>
         <div class="card mt-3">
             <div class="card-body">
-                
+                <p class="text-muted">Published at: <%= blog.postedAt %></p>
                 <h5 class="card-title"><%= blog.title %></h5>
                 <p class="card-text">
                     <%= blog.content.length > 99 ? blog.content.slice(0, 99) + '...' : blog.content %>
                 </p>
                 
-                <a href="/blog/<%= blog.blogId %>" class="btn btn-primary">Read More</a>
-                <a href="/delete/<%= blog.blogId %>" class="btn btn-dark">Delete</a>
-                <a href="/edit/<%= blog.blogId %>" class="btn btn-dark">Edit</a>
+                <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read More</a>
+                <a href="/delete/<%= blog._id %>" class="btn btn-dark">Delete</a>
+                <a href="/edit/<%= blog._id %>" class="btn btn-dark">Edit</a>
 
             </div>
         </div>
