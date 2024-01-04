@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const config = require("./config");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 
 // Connecting to MongoDB Atlas
 mongoose.connect(
-  "mongodb+srv://shiv04313:p35htOeLIFDIqDxN@bloggify.wid7sej.mongodb.net/?retryWrites=true&w=majority",
+  config.mongoURI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
